@@ -18,7 +18,6 @@ class Robot : TimedRobot() {
     private val drive = DifferentialDrive(
         Components.Propulsion.LeftMotorSet,
         Components.Propulsion.RightMotorSet,
-        Components.Propulsion.SwerveMotorSet
     )
 
     private val autonomousChooser = SendableChooser<Command>()
