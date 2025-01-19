@@ -27,18 +27,16 @@ val DefaultSwerveConfig: SparkBaseConfig = SparkMaxConfig()
 
 class MotorSet(
     val lead: SparkMax,
-    // val follower0: SparkMax,
+    val follower0: SparkMax,
     val baseConfig: SparkBaseConfig,
 ) : DoubleConsumer {
     init {
         lead.configure(baseConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters)
 
-        /*
         SparkMaxConfig()
             .apply(baseConfig)
             .follow(lead)
-            .let { follower1.configure(it, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters) }
-        */
+            .let { follower0.configure(it, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters) }
     }
 
     override fun accept(value: Double) {
@@ -59,3 +57,5 @@ class MotorSet(
         )
     }
 }
+
+// class SwerveModule()
